@@ -1,6 +1,21 @@
-function logout() {
-  // Here you would clear the user's session or token from storage
-  console.log("Logging out user");
-  // Redirect to the login page or home page
-  window.location.href = "login.html";
-}
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("logoutButton").onclick = function (event) {
+    event.preventDefault(); // Prevent any default action
+
+    // Retrieve the current user from the user pool
+    var cognitoUser = userPool.getCurrentUser();
+
+    if (cognitoUser != null) {
+      // Sign out the user
+      cognitoUser.signOut();
+
+      // Clear any session or local storage data if necessary
+      localStorage.clear();
+      sessionStorage.clear();
+
+      console.log("Logging out user");
+      // Redirect to the login page or home page
+      window.location.href = "login.html";
+    }
+  };
+});
