@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function redirectToLogin() {
-  window.location.href = "login.html";
+  window.location.href = "./";
 }
 
 document.getElementById("resetPasswordForm").onsubmit = function (event) {
@@ -50,13 +50,13 @@ document.getElementById("resetPasswordForm").onsubmit = function (event) {
           // Sign out the user
           cognitoUser.signOut();
 
-          window.location.href = "login.html"; // Redirect the user after a successful password change
+          window.location.href = "./"; // Redirect the user after a successful password change
         }
       );
     });
   } else {
     // The user is not logged in or the session is not valid
     console.log("User is not logged in.");
-    window.location.href = "login.html"; // Optionally redirect to the login page
+    window.location.href = "./"; // Optionally redirect to the login page
   }
 };

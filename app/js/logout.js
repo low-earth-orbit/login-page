@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       console.log("Logging out user. You'll be redirected to the login page.");
       // Redirect to the login page or home page
-      window.location.href = "login.html";
+      window.location.href = "./";
     }
   };
 });

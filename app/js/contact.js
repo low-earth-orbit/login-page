@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function redirectToLogin() {
-  window.location.href = "login.html"; // Redirect user to login page
+  window.location.href = "./"; // Redirect user to login page
 }
 
 document.getElementById("contactForm").onsubmit = async function (event) {
