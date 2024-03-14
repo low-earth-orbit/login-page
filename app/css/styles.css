@@ -1,0 +1,70 @@
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* Styling for the form fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Styling for the form buttons */
+button {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Additional styling for the logout button to differentiate it */
+#logoutButton {
+  background-color: #f44336;
+}
+
+#logoutButton:hover {
+  background-color: #da190b;
+}
+
+/* Styling for form container or any additional content */
+.container {
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Link styling */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Heading styling */
+h2 {
+  color: #333;
+}
