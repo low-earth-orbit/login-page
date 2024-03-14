@@ -2,7 +2,7 @@
 
 A toy project achieving user registration, login, logout, password reset, and contact form submission functionalities.
 
-Click [HERE](https://login.leohong.dev/) for the latest deployed version; You're welcome to test it, but please don't abuse it (e.g. create too many accounts).
+Click [HERE](https://login.leohong.dev/) for the latest deployed version; You're welcome to test it, but please don't abuse it (e.g. create too many accounts; or fetch the website too many times).
 
 ## Architecture
 
@@ -20,14 +20,15 @@ A toy project leveraging some AWS services:
 - ACM (for TLS certificate)
 - CloudFront (content delivery network)
 - Cognito (authentication/user pool)
-- API gateway
+- API Gateway
 - Lambda
 - DynamoDB
 
-Plus HTTP, CSS, JavaScript, and Python (for Lambda function) as usual.
+Plus HTTP, CSS, JavaScript and NodeJS (for Lambda function) as usual.
 
 ## Security
 
-- Data encrypted in transit and at rest
-- Authentication using Cognito (pretty robust)
-- User input sanitized
+- User input validated & sanitized
+- Data encrypted in transit (HTTPS) and at rest (by AWS)
+- User authentication using Cognito
+- JWT for API call
