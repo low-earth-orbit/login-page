@@ -45,14 +45,10 @@ document.getElementById("resetPasswordForm").onsubmit = function (event) {
             alert(err.message || JSON.stringify(err));
             return;
           }
-          alert("Password changed successfully!");
+          alert("Password changed successfully! You'll be logged out.");
 
           // Sign out the user
           cognitoUser.signOut();
-
-          // Clear any session or local storage data
-          localStorage.clear();
-          sessionStorage.clear();
 
           window.location.href = "login.html"; // Redirect the user after a successful password change
         }

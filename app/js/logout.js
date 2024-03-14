@@ -6,11 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
     var cognitoUser = userPool.getCurrentUser();
 
     if (cognitoUser != null) {
+      // Sign out current user
       cognitoUser.signOut();
-      localStorage.clear(); 
+
+      // Clear local storage and session data
+      localStorage.clear();
       sessionStorage.clear();
 
-      console.log("Logging out user");
+      console.log("Logging out user. You'll be redirected to the login page.");
       // Redirect to the login page or home page
       window.location.href = "login.html";
     }

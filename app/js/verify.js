@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         alert(err.message || JSON.stringify(err));
         return;
       }
-      alert("Email verified successfully!");
+      alert("Email verified successfully! You'll be redirected to the login page.");
       window.location.href = "login.html"; // Redirect to login page after successful verification
     });
   };
