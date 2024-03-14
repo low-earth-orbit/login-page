@@ -76,11 +76,11 @@ document.getElementById("contactForm").onsubmit = async function (event) {
       }
 
       const result = await response.json();
-      alert(result.message);
+      alert(result);
       document.getElementById("contactForm").reset();
     } catch (error) {
       console.error("Error:", error);
-      alert(`Error submitting form: ${error.message}`);
+      alert(`Error submitting form: ${error}`);
     }
   });
 };

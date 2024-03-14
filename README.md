@@ -31,4 +31,5 @@ Plus HTTP, CSS, JavaScript and NodeJS (for Lambda function) as usual.
 - User input validated & sanitized
 - Data encrypted in transit (HTTPS) and at rest (by AWS)
 - User authentication using Cognito
-- JWT for API call
+- Cognito JWT auth for API calls
+- CORS policy for API Gateway
