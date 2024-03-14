@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Sign out the user
       cognitoUser.signOut();
 
-      // Clear any session or local storage data if necessary
+      // Clear any session or local storage data
       localStorage.clear();
       sessionStorage.clear();
 

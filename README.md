@@ -2,6 +2,8 @@
 
 A toy project achieving user registration, login, logout, password reset, and contact form submission functionalities.
 
+Click [HERE](https://login.leohong.dev/) for the latest deployed version; You're welcome to test it, but please don't abuse it (e.g. create too many accounts).
+
 ## Architecture
 
 - Static content hosted on S3, fronted by CloudFront for content delivery

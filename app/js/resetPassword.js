@@ -1,27 +1,43 @@
-document.getElementById("resetPasswordForm").onsubmit = async function (event) {
-  event.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("resetPasswordForm").onsubmit = function (event) {
+    event.preventDefault();
 
-  const oldPassword = document.getElementById("oldPassword").value;
-  const newPassword = document.getElementById("newPassword").value;
+    var oldPassword = document.getElementById("oldPassword").value;
+    var newPassword = document.getElementById("newPassword").value;
+    var cognitoUser = userPool.getCurrentUser();
 
-  try {
-    // This endpoint and method are placeholders. Adjust according to your actual API.
-    const response = await fetch("/api/changePassword", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ oldPassword, newPassword }),
-    });
+    if (cognitoUser != null) {
+      cognitoUser.getSession(function (err, session) {
+        if (err) {
+          alert(err.message || JSON.stringify(err));
+          return;
+        }
+        // The user's session is valid, proceed with the password change
+        cognitoUser.changePassword(
+          oldPassword,
+          newPassword,
+          function (err, result) {
+            if (err) {
+              alert(err.message || JSON.stringify(err));
+              return;
+            }
+            alert("Password changed successfully!");
 
-    if (response.ok) {
-      alert("Password has been successfully reset.");
-      // Optionally redirect the user or take other actions
+            // Sign out the user
+            cognitoUser.signOut();
+
+            // Clear any session or local storage data
+            localStorage.clear();
+            sessionStorage.clear();
+
+            window.location.href = "login.html"; // Redirect the user after a successful password change
+          }
+        );
+      });
     } else {
-      // Handle errors, e.g., old password incorrect
-      const error = await response.json();
-      alert(error.message);
+      // The user is not logged in or the session is not valid
+      console.log("User is not logged in.");
+      window.location.href = "login.html"; // Optionally redirect to the login page
     }
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Failed to reset password. Please try again.");
-  }
-};
+  };
+});
