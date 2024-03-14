@@ -1,3 +1,25 @@
+// If user is logged in, redirect user to contact page
+document.addEventListener("DOMContentLoaded", function () {
+  var cognitoUser = userPool.getCurrentUser();
+
+  if (cognitoUser != null) {
+    cognitoUser.getSession(function (err, session) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+
+      if (session.isValid()) {
+        redirectToContact();
+      }
+    });
+  }
+});
+
+function redirectToContact() {
+  window.location.href = "contact.html";
+}
+
 document.getElementById("registerForm").onsubmit = function (event) {
   event.preventDefault();
 
@@ -29,6 +51,6 @@ document.getElementById("registerForm").onsubmit = function (event) {
 
     sessionStorage.setItem("userEmailForVerification", email);
 
-    window.location.href = "login.html"; // Redirect to login page after successful verification
+    window.location.href = "verify.html"; // Redirect for email verification after successful registration
   });
 };

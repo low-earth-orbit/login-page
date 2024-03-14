@@ -1,3 +1,29 @@
+// Redirect to login if no user is logged in
+document.addEventListener("DOMContentLoaded", function () {
+  var cognitoUser = userPool.getCurrentUser();
+
+  if (cognitoUser != null) {
+    cognitoUser.getSession(function (err, session) {
+      if (err) {
+        console.error(err);
+        redirectToLogin();
+        return;
+      }
+
+      if (!session.isValid()) {
+        redirectToLogin();
+      }
+    });
+  } else {
+    // Redirect to login if no user is logged in
+    redirectToLogin();
+  }
+});
+
+function redirectToLogin() {
+  window.location.href = "login.html"; // Redirect user to login page
+}
+
 document.getElementById("contactForm").onsubmit = async function (event) {
   event.preventDefault();
   const name = document.getElementById("name").value;

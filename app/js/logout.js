@@ -6,11 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var cognitoUser = userPool.getCurrentUser();
 
     if (cognitoUser != null) {
-      // Sign out the user
       cognitoUser.signOut();
-
-      // Clear any session or local storage data
-      localStorage.clear();
+      localStorage.clear(); 
       sessionStorage.clear();
 
       console.log("Logging out user");
