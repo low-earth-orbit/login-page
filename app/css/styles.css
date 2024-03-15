@@ -78,3 +78,21 @@ h2 {
   color: #333;
   margin-bottom: 20px;
 }
+
+/* Styling for password requirements */
+#passwordRequirements * {
+  font-size: 14px;
+}
+
+#passwordRequirements ul {
+  padding-left: 20px;
+  margin: 5px;
+}
+
+#passwordRequirements li {
+  margin-bottom: 5px;
+}
+
+#passwordRequirements li.valid {
+  color: green;
+}

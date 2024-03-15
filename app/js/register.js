@@ -23,8 +23,15 @@ function redirectToContact() {
 document.getElementById("registerForm").onsubmit = function (event) {
   event.preventDefault();
 
-  var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
+  const isPasswordValid = validatePassword(password);
+
+  if (!isPasswordValid) {
+    alert("Password does not meet the requirements.");
+    return; // Stop the form from submitting
+  }
+
+  var email = document.getElementById("email").value;
 
   var attributeList = [];
   var dataEmail = {
@@ -54,3 +61,43 @@ document.getElementById("registerForm").onsubmit = function (event) {
     window.location.href = "verify.html"; // Redirect for email verification after successful registration
   });
 };
+
+function validatePassword(password) {
+  const requirements = {
+    length: 8,
+    number: /\d/,
+    specialChar: /[!@#$%^&*(),.?":{}|<>]/,
+    upper: /[A-Z]/,
+    lower: /[a-z]/,
+  };
+
+  const isValidLength = password.length >= requirements.length;
+  const hasNumber = requirements.number.test(password);
+  const hasSpecialChar = requirements.specialChar.test(password);
+  const hasUpper = requirements.upper.test(password);
+  const hasLower = requirements.lower.test(password);
+
+  // Update UI elements
+  document
+    .getElementById("requirementLength")
+    .classList.toggle("valid", isValidLength);
+  document
+    .getElementById("requirementNumber")
+    .classList.toggle("valid", hasNumber);
+  document
+    .getElementById("requirementSpecial")
+    .classList.toggle("valid", hasSpecialChar);
+  document
+    .getElementById("requirementUpper")
+    .classList.toggle("valid", hasUpper);
+  document
+    .getElementById("requirementLower")
+    .classList.toggle("valid", hasLower);
+
+  return isValidLength && hasNumber && hasSpecialChar && hasUpper && hasLower;
+}
+
+document.getElementById("password").addEventListener("input", function () {
+  const password = this.value;
+  validatePassword(password);
+});

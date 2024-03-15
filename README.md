@@ -34,3 +34,4 @@ Plus HTTP, CSS, JavaScript and NodeJS (for Lambda function) as usual.
 - Cognito JWT auth for API calls
 - CORS policy for API Gateway
 - Strict Content Security Policy (CSP)
+- Password checker & Cognito password requirements
