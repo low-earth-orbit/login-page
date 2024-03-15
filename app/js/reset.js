@@ -28,6 +28,11 @@ document.getElementById("resetPasswordForm").onsubmit = function (event) {
 
   var oldPassword = document.getElementById("oldPassword").value;
   var newPassword = document.getElementById("newPassword").value;
+  if (oldPassword === newPassword) {
+    alert("The new password must be different from the old password.");
+    return; // Stop the form submission
+  }
+
   var cognitoUser = userPool.getCurrentUser();
 
   if (cognitoUser != null) {
