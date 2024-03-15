@@ -33,5 +33,9 @@ Plus HTTP, CSS, JavaScript and NodeJS (for Lambda function) as usual.
 - User authentication using Cognito
 - Cognito JWT auth for API calls
 - CORS policy for API Gateway
-- Strict Content Security Policy (CSP)
+- Response headers policy set for CloudFront
+  - Strict-Transport-Security
+  - Referrer-Policy
+  - X-Frame-Options
+  - Content-Security-Policy (CSP)
 - Password checker & Cognito password requirements
