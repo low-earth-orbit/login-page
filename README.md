@@ -1,41 +1,23 @@
 # login-page
 
-A toy project achieving user registration, login, logout, password reset, and contact form submission functionalities.
+A toy project enables user registration, login, logout, password reset, and contact form submission functionalities.
 
-Click [HERE](https://login.leohong.dev/) for the latest deployed version; You're welcome to test it, but please don't abuse it (e.g. create too many accounts; or fetch the website too many times).
+[Click HERE](https://login.leohong.dev/) to view the latest deployed version of the application.
 
 ## Architecture
 
-- Static content hosted on S3, fronted by CloudFront for content delivery
-- Data in transit encrypted by HTTPS / TLS
-- Data at rest handled by AWS-managed encryption
-- Backend is a Lambda function fronted by API Gateway
-- The Lambda function then stores data in DynamoDB
+![Software architecture of the app](./arch-diagram.png)
 
 ## Tech Stack
 
-A toy project leveraging some AWS services:
+The application is built on a modern tech stack, combining AWS services with standard web technologies:
 
-- S3 (static web hosting and website endpoint)
-- ACM (for TLS certificate)
-- CloudFront (content delivery network)
-- Cognito (authentication/user pool)
-- API Gateway
-- Lambda
-- DynamoDB
-
-Plus HTTP, CSS, JavaScript and NodeJS (for Lambda function) as usual.
+- **AWS Services**: S3, ACM, CloudFront, Cognito, API Gateway, Lambda, DynamoDB
+- **Web Technologies**: HTTP, CSS, JavaScript, NodeJS
 
 ## Security
 
-- User input validated, sanitized, and parametrized
+- CloudFront Security Headers
 - Data encrypted in transit (HTTPS) and at rest (by AWS)
 - User authentication using Cognito
-- Cognito JWT auth for API calls
-- CORS policy for API Gateway
-- Response headers policy set for CloudFront
-  - Strict-Transport-Security
-  - Referrer-Policy
-  - X-Frame-Options
-  - Content-Security-Policy (CSP)
-- Password checker & Cognito password requirements
+- CORS and Cognito user pool as Lambda authorizer for API Gateway
