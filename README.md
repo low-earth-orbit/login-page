@@ -2,8 +2,6 @@
 
 A toy project enables user registration, login, logout, password reset, and contact form submission functionalities.
 
-[Click HERE](https://login.leohong.dev/) to view the latest deployed version of the application.
-
 ## Architecture
 
 ![Software architecture of the app](./arch-diagram.png)
